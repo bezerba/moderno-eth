@@ -70,7 +70,7 @@ def add_to_cart(request, product_id):
         }
 
     request.session['cart'] = cart
-    return redirect('core:cart')
+    return redirect('core:products_list', brand_slug=product.year.model.brand.slug, model_slug=product.year.model.slug, year=product.year.year)
 
 def cart(request):
     cart = request.session.get('cart', {})
